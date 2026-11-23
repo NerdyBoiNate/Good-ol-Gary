@@ -49,13 +49,23 @@
 <div id="drunk"><span>sober-ish</span><input type="range" id="temp" min="0.3" max="1.4" step="0.05" value="0.8"><span>wasted</span></div>
 <form id="f"><input id="in" placeholder="say somethin to gary…" autocomplete="off" disabled><button class="send" id="go" disabled>Send</button></form>
 <script>
-const META = {"chars": "\n !'()*+,-./0123456789:=?abcdefghijklmnopqrstuvwxyz", "cfg": [51, 320, 8, 8, 192], "tensors": [["tok.weight", "q", [51, 320]], ["pos.weight", "q", [192, 320]], ["blocks.0.ln1.weight", "f", 320], ["blocks.0.ln1.bias", "f", 320], ["blocks.0.qkv.weight", "q", [960, 320]], ["blocks.0.qkv.bias", "f", 960], ["blocks.0.proj.weight", "q", [320, 320]], ["blocks.0.proj.bias", "f", 320], ["blocks.0.ln2.weight", "f", 320], ["blocks.0.ln2.bias", "f", 320], ["blocks.0.fc1.weight", "q", [1280, 320]], ["blocks.0.fc1.bias", "f", 1280], ["blocks.0.fc2.weight", "q", [320, 1280]], ["blocks.0.fc2.bias", "f", 320], ["blocks.1.ln1.weight", "f", 320], ["blocks.1.ln1.bias", "f", 320], ["blocks.1.qkv.weight", "q", [960, 320]], ["blocks.1.qkv.bias", "f", 960], ["blocks.1.proj.weight", "q", [320, 320]], ["blocks.1.proj.bias", "f", 320], ["blocks.1.ln2.weight", "f", 320], ["blocks.1.ln2.bias", "f", 320], ["blocks.1.fc1.weight", "q", [1280, 320]], ["blocks.1.fc1.bias", "f", 1280], ["blocks.1.fc2.weight", "q", [320, 1280]], ["blocks.1.fc2.bias", "f", 320], ["blocks.2.ln1.weight", "f", 320], ["blocks.2.ln1.bias", "f", 320], ["blocks.2.qkv.weight", "q", [960, 320]], ["blocks.2.qkv.bias", "f", 960], ["blocks.2.proj.weight", "q", [320, 320]], ["blocks.2.proj.bias", "f", 320], ["blocks.2.ln2.weight", "f", 320], ["blocks.2.ln2.bias", "f", 320], ["blocks.2.fc1.weight", "q", [1280, 320]], ["blocks.2.fc1.bias", "f", 1280], ["blocks.2.fc2.weight", "q", [320, 1280]], ["blocks.2.fc2.bias", "f", 320], ["blocks.3.ln1.weight", "f", 320], ["blocks.3.ln1.bias", "f", 320], ["blocks.3.qkv.weight", "q", [960, 320]], ["blocks.3.qkv.bias", "f", 960], ["blocks.3.proj.weight", "q", [320, 320]], ["blocks.3.proj.bias", "f", 320], ["blocks.3.ln2.weight", "f", 320], ["blocks.3.ln2.bias", "f", 320], ["blocks.3.fc1.weight", "q", [1280, 320]], ["blocks.3.fc1.bias", "f", 1280], ["blocks.3.fc2.weight", "q", [320, 1280]], ["blocks.3.fc2.bias", "f", 320], ["blocks.4.ln1.weight", "f", 320], ["blocks.4.ln1.bias", "f", 320], ["blocks.4.qkv.weight", "q", [960, 320]], ["blocks.4.qkv.bias", "f", 960], ["blocks.4.proj.weight", "q", [320, 320]], ["blocks.4.proj.bias", "f", 320], ["blocks.4.ln2.weight", "f", 320], ["blocks.4.ln2.bias", "f", 320], ["blocks.4.fc1.weight", "q", [1280, 320]], ["blocks.4.fc1.bias", "f", 1280], ["blocks.4.fc2.weight", "q", [320, 1280]], ["blocks.4.fc2.bias", "f", 320], ["blocks.5.ln1.weight", "f", 320], ["blocks.5.ln1.bias", "f", 320], ["blocks.5.qkv.weight", "q", [960, 320]], ["blocks.5.qkv.bias", "f", 960], ["blocks.5.proj.weight", "q", [320, 320]], ["blocks.5.proj.bias", "f", 320], ["blocks.5.ln2.weight", "f", 320], ["blocks.5.ln2.bias", "f", 320], ["blocks.5.fc1.weight", "q", [1280, 320]], ["blocks.5.fc1.bias", "f", 1280], ["blocks.5.fc2.weight", "q", [320, 1280]], ["blocks.5.fc2.bias", "f", 320], ["blocks.6.ln1.weight", "f", 320], ["blocks.6.ln1.bias", "f", 320], ["blocks.6.qkv.weight", "q", [960, 320]], ["blocks.6.qkv.bias", "f", 960], ["blocks.6.proj.weight", "q", [320, 320]], ["blocks.6.proj.bias", "f", 320], ["blocks.6.ln2.weight", "f", 320], ["blocks.6.ln2.bias", "f", 320], ["blocks.6.fc1.weight", "q", [1280, 320]], ["blocks.6.fc1.bias", "f", 1280], ["blocks.6.fc2.weight", "q", [320, 1280]], ["blocks.6.fc2.bias", "f", 320], ["blocks.7.ln1.weight", "f", 320], ["blocks.7.ln1.bias", "f", 320], ["blocks.7.qkv.weight", "q", [960, 320]], ["blocks.7.qkv.bias", "f", 960], ["blocks.7.proj.weight", "q", [320, 320]], ["blocks.7.proj.bias", "f", 320], ["blocks.7.ln2.weight", "f", 320], ["blocks.7.ln2.bias", "f", 320], ["blocks.7.fc1.weight", "q", [1280, 320]], ["blocks.7.fc1.bias", "f", 1280], ["blocks.7.fc2.weight", "q", [320, 1280]], ["blocks.7.fc2.bias", "f", 320], ["lnf.weight", "f", 320], ["lnf.bias", "f", 320]], "nparams": 9942080};
+const META = { chars: "\n !'()*+,-./0123456789:=?abcdefghijklmnopqrstuvwxyz", cfg: [51, 320, 8, 8, 192], nparams: 9942080, tensors: [["tok.weight", "q", [51, 320]], ["pos.weight", "q", [192, 320]]] };
+for (let l = 0; l < 8; l++) { const p = "blocks." + l + ".";
+  META.tensors.push([p + "ln1.weight", "f", 320], [p + "ln1.bias", "f", 320], [p + "qkv.weight", "q", [960, 320]], [p + "qkv.bias", "f", 960],
+    [p + "proj.weight", "q", [320, 320]], [p + "proj.bias", "f", 320], [p + "ln2.weight", "f", 320], [p + "ln2.bias", "f", 320],
+    [p + "fc1.weight", "q", [1280, 320]], [p + "fc1.bias", "f", 1280], [p + "fc2.weight", "q", [320, 1280]], [p + "fc2.bias", "f", 320]); }
+META.tensors.push(["lnf.weight", "f", 320], ["lnf.bias", "f", 320]);
 const [V, D, L, H, T] = META.cfg; const HD = D / H;
 const CH = META.chars, stoi = {}; [...CH].forEach((c, i) => stoi[c] = i);
 let P = {};
 
 async function load() {
   const buf = new Uint8Array(await (await fetch("weights.bin")).arrayBuffer());
+  try { // fast path: Rust engine compiled to WebAssembly
+    const { instance } = await WebAssembly.instantiate(await (await fetch("gary.wasm")).arrayBuffer());
+    const w = instance.exports, ptr = w.alloc(buf.length);
+    new Uint8Array(w.memory.buffer, ptr, buf.length).set(buf); w.init(ptr, buf.length); W = w; return;
+  } catch (e) { console.log("wasm unavailable, using JS engine", e); }
   let off = 0;
   for (const [name, kind, shape] of META.tensors) {
     if (kind === "f") { P[name] = new Float32Array(buf.slice(off, off + shape * 4).buffer); off += shape * 4; }
@@ -80,12 +90,14 @@ function ln(x, w, b, out) { let m = 0; for (let i = 0; i < D; i++) m += x[i]; m 
   for (let i = 0; i < D; i++) out[i] = (x[i] - m) * v * w[i] + b[i]; return out; }
 const gelu = x => 0.5 * x * (1 + Math.tanh(0.7978845608 * (x + 0.044715 * x * x * x)));
 
-let K, Vc, pos;
+let K, Vc, pos, W = null;
+function reset() { if (W) { W.reset(); pos = 0; } else jsReset(); }
+function step(t) { if (W) { const p = W.step(t); pos++; return new Float32Array(W.memory.buffer, p, V); } return jsStep(t); }
 const x = new Float32Array(D), h = new Float32Array(D), tmp = new Float32Array(D), qkv = new Float32Array(3 * D),
   att = new Float32Array(D), f1 = new Float32Array(4 * D), sc = new Float32Array(T), logits = new Float32Array(V);
-function reset() { K = []; Vc = []; for (let l = 0; l < L; l++) { K.push(new Float32Array(T * D)); Vc.push(new Float32Array(T * D)); } pos = 0; }
+function jsReset() { K = []; Vc = []; for (let l = 0; l < L; l++) { K.push(new Float32Array(T * D)); Vc.push(new Float32Array(T * D)); } pos = 0; }
 
-function step(tok) { // returns logits
+function jsStep(tok) {
   rowOf(P["tok.weight"], tok, x); rowOf(P["pos.weight"], pos, tmp);
   for (let i = 0; i < D; i++) x[i] += tmp[i];
   for (let l = 0; l < L; l++) {
@@ -182,7 +194,7 @@ document.getElementById("f").onsubmit = e => { e.preventDefault(); const t = inp
 ["hi gary", "what is 47 * 23", "write a poem about pizza", "tell me a story about a pirate", "give me advice about school", "tell me a joke", "are you drunk"]
   .forEach(t => { const b = document.createElement("button"); b.className = "chip"; b.textContent = t;
     b.onclick = () => { if (busy) return; bubble("me", t); reply(t); }; document.getElementById("chips").appendChild(b); });
-setTimeout(async () => { try { await load(); } catch (e) { document.getElementById("status").textContent = "couldn't load gary's brain. check your connection and reopen."; return; } document.getElementById("status").textContent = (META.nparams / 1e6).toFixed(1) + "M params · runs on your phone, offline";
+setTimeout(async () => { try { await load(); } catch (e) { document.getElementById("status").textContent = "couldn't load gary's brain. check your connection and reopen."; return; } document.getElementById("status").textContent = (META.nparams / 1e6).toFixed(1) + "M params · " + (W ? "rust engine 🦀" : "js engine") + " · offline";
   inp.disabled = false; go.disabled = false; bubble("bot", "heyyy! i'm gary. *hic* i do math, poemsh, shtories, and terrible advice. whatcha need?"); }, 50);
 if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
 </script>
